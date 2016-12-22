@@ -9,3 +9,7 @@
     -webkit-transform: translateX(0);
     transform: translateX(0);
 }
+
+table.car-form td{
+    vertical-align: middle !important;
+}
