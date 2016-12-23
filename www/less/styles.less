@@ -41,4 +41,49 @@ main {
         /* end with opacity 1 (fade in) */
         opacity: 1;
     }
+
+.has-feedback {
+  // Right Icon Input Padding improvements
+  // when the padding mirrors the input height, it makes the icon look like it 
+  // occupies a square on the side of the control
+
+  .form-control{
+    padding-right: 34px;
+  }
+  .form-control.input-sm,
+  &.form-group-sm .form-control{
+    padding-right: 30px;
+  }
+  .form-control.input-lg,
+  &.form-group-lg .form-control {
+    padding-right: 46px; 
+  }
 }
+.has-feedback-left {  
+  // Left Icon Input Padding
+  .form-control {
+    //reset changes to right
+    padding-right: 12px;
+    padding-left: 34px;
+  }
+  .form-control.input-sm,
+  &.form-group-sm .form-control{
+    padding-left: 30px;
+  }
+  .form-control.input-lg,
+  &.form-group-lg .form-control {
+    padding-left: 46px; 
+  }
+}
+
+// Left Align Icon
+.has-feedback-left .form-control-feedback {
+    left: 0; 
+}    
+// Left Align Icon
+.fa-icon{
+    padding-top: 8px;
+} 
+}
+
+

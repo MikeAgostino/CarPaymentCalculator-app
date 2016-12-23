@@ -13,3 +13,8 @@
 table.car-form td{
     vertical-align: middle !important;
 }
+
+// Left Align Icon
+.has-feedback-left .form-control-feedback {
+    left: 0; 
+}

@@ -17,8 +17,7 @@ $urlRouterProvider.otherwise('/home');
   })  
     .state('single', {
       url: "/single",
-      templateUrl: 'templates/SingleCar.html',
-      controller: 'singleCtrl'
+      templateUrl: 'templates/SingleCar.html'
     })
     .state('multi', {
       url: "/multi",
