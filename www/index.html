@@ -69,14 +69,19 @@
 
   <ion-pane ng-controller="homeCtrl">
     <ion-header-bar class="bar-stable">
-      <div class="btn-group pull-right">
-        <a class="button icon-left ion-chevron-left button-clear button-dark" ng-if="uiRouterState.name != 'home'" onclick="window.history.go(-1)">Back</a>
-</div>
 <h1 class="title">Car Payment Calculator</h1>
 </ion-header-bar>
 <ion-content>
   <main ui-view></main>
 </ion-content>
+<ion-tabs class="tabs-positive tabs-icon-top">
+  <ion-tab  ui-sref="single" title="Single" icon-on="icon ion-model-s" icon-off="icon ion-model-s">
+  </ion-tab>
+
+  <ion-tab  ui-sref="multi" title="Multi" icon-on="icon ion-ios-copy-outline" icon-off="icon ion-ios-copy-outline">
+  </ion-tab>
+
+</ion-tabs>
 </ion-pane>
 </body>
 

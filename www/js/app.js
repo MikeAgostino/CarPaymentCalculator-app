@@ -6,7 +6,10 @@
 var app = angular.module('starter', ['ionic', 'ui.router', 'ngAnimate'])
 
 
-  .config(function ($stateProvider, $urlRouterProvider) {
+  .config(function ($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
+    
+    $ionicConfigProvider.tabs.position('bottom'); // other values: top
+    
 
     $urlRouterProvider.otherwise('/home');
     $stateProvider
@@ -23,6 +26,7 @@ var app = angular.module('starter', ['ionic', 'ui.router', 'ngAnimate'])
         url: "/multi",
         templateUrl: 'templates/Multi.html'
       })
+
 
 
 
