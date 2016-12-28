@@ -1,0 +1,61 @@
+
+
+<PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <AndroidKeyStore>True</AndroidKeyStore>
+    <AndroidSigningKeyStore>xample.keystore</AndroidSigningKeyStore>
+    <AndroidSigningStorePass>password</AndroidSigningStorePass>
+    <AndroidSigningKeyAlias>publishingdoc</AndroidSigningKeyAlias>
+    <AndroidSigningKeyPass>password</AndroidSigningKeyPass>
+</PropertyGroup>
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore xample.keystore mono.samples.helloworld.apk publishingdoc
+
+
+
+LottoApp
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore KeyStore_SantoMigue.jks com.SantoMigueProductions.LotteryApp.apk KeyStore_SantoMigue
+
+zipalign -f -v 4 com.SantoMigueProductions.LotteryApp.apk com.SantoMigueProductions.LotteryApp-signed.apk
+
+
+CarPaymentApp
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore KeyStore_SantoMigue.jks com.SantoMigueProductions.Simple_Car_Payment_Calculator.apk KeyStore_SantoMigue
+
+
+zipalign -f -v 4 com.SantoMigueProductions.LotteryApp.apk com.SantoMigueProductions.Simple_Car_Payment_Calculator-signed.apk
+
+Banner Ad
+
+Into the Axml File
+ xmlns:ads="http://schemas.android.com/apk/res-auto"
+
+  <RelativeLayout
+    android:id="@+id/mainLayout"
+ 
+   android:layout_width="match_parent"
+
+    android:layout_height="match_parent">
+
+    <com.google.android.gms.ads.AdView
+
+        android:id="@+id/adView"
+
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentBottom="true"
+
+        android:layout_alignParentLeft="true"
+
+        ads:adSize="BANNER"
+
+        ads:adUnitId="@string/ad_unit_id" />
+
+  </RelativeLayout>
+
+
+
+

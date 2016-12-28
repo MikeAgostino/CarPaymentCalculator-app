@@ -6,10 +6,10 @@
 var app = angular.module('starter', ['ionic', 'ui.router', 'ngAnimate'])
 
 
-  .config(function ($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
-    
+  .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+
     $ionicConfigProvider.tabs.position('bottom'); // other values: top
-    
+
 
     $urlRouterProvider.otherwise('/home');
     $stateProvider
@@ -22,9 +22,9 @@ var app = angular.module('starter', ['ionic', 'ui.router', 'ngAnimate'])
         url: "/single",
         templateUrl: 'templates/SingleCar.html'
       })
-      .state('multi', {
-        url: "/multi",
-        templateUrl: 'templates/Multi.html'
+      .state('contact', {
+        url: "/contact",
+        templateUrl: 'templates/Contact.html'
       })
 
 
@@ -34,32 +34,33 @@ var app = angular.module('starter', ['ionic', 'ui.router', 'ngAnimate'])
 
   .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
-      if (window.cordova && window.cordova.plugins.Keyboard) {
-        // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-        // for form inputs)
-        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-
-        // Don't remove this line unless you know what you are doing. It stops the viewport
-        // from snapping when text inputs are focused. Ionic handles this internally for
-        // a much nicer keyboard experience.
-        cordova.plugins.Keyboard.disableScroll(true);
-      }
       if (window.StatusBar) {
         StatusBar.styleDefault();
       }
 
+      var admobid = {};
+      // select the right Ad Id according to platform
       if (ionic.Platform.isAndroid()) {
         admobid = { // for Android
-          banner: 'ca-app-pub-3721080012474962/9617573537' // Change this to your Ad Unit Id for banner...
+          banner: 'ca-app-pub-3721080012474962/4073028731',
+          interstitial: 'ca-app-pub-3721080012474962/4073028731'
         };
-
-        if (AdMob)
-          AdMob.createBanner({
-            adId: admobid.banner,
-            position: AdMob.AD_POSITION.BOTTOM_CENTER,
-            autoShow: true
-          });
+        // } else if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) {
+        //     admobid = { // for iOS
+        //         banner: 'ca-app-pub-2343423432432423/324324324324',
+        //         interstitial: 'ca-app-pub-2343423432432423/324324324324'
+        //     };
+        // } else {
+        //     admobid = { // for Windows Phone
+        //         banner: 'ca-app-pub-2343423432432423/324324324324',
+        //         interstitial: 'ca-app-pub-2343423432432423/324324324324'
+        //     };
       }
+
+      if (window.AdMob) AdMob.prepareInterstitial({
+        adId: admobid.interstitial,
+        isTesting: false,
+      });
     });
   })
 
