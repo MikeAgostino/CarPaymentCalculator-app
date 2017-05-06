@@ -13,15 +13,16 @@ app.controller("singleCtrl", ['$scope', '$http', function singleCtrl($scope) {
         banner: 'ca-app-pub-3721080012474962/4073028731',
         interstitial: 'ca-app-pub-3721080012474962/4073028731'
     };
-
+    
     $scope.getMonthlyInterest = function () {
-        var monthly_interest = ($scope.CarInfo.financeRate / 100) / 12;
+        var financeRate = parseFloat($scope.CarInfo.financeRate)
+        var monthly_interest = (financeRate / 100) / 12;
 
         var monthly_payments = 0.0;
         var months = $scope.CarInfo.years * 12;
-        var monthly_interest = ($scope.CarInfo.financeRate / 100) / 12;
+        var monthly_interest = (financeRate / 100) / 12;
 
-        if ($scope.CarInfo.financeRate == 0) {
+        if (financeRate == 0) {
             monthly_payments = (($scope.CarInfo.value) * (($scope.CarInfo.tax / 100) + 1) - $scope.CarInfo.down) / months;
         }
         else {
@@ -38,7 +39,7 @@ app.controller("singleCtrl", ['$scope', '$http', function singleCtrl($scope) {
     $scope.calculate = function calculate() {
         $scope.monthly = $scope.getMonthlyInterest();
         $scope.biweekly = $scope.convertToBiweekly($scope.monthly);
-        if ($scope.count % 2 == 0) {
+        if ($scope.count % 5 == 0) {
 
             if (window.AdMob) {
                 AdMob.prepareInterstitial({

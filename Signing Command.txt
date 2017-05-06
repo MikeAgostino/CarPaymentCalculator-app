@@ -21,10 +21,12 @@ zipalign -f -v 4 com.SantoMigueProductions.LotteryApp.apk com.SantoMigueProducti
 
 CarPaymentApp
 
-jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore KeyStore_SantoMigue.jks com.SantoMigueProductions.Simple_Car_Payment_Calculator.apk KeyStore_SantoMigue
+cordova build --release android
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore KeyStore_SantoMigue.jks android-release-unsigned.apk KeyStore_SantoMigue
 
 
-zipalign -f -v 4 com.SantoMigueProductions.LotteryApp.apk com.SantoMigueProductions.Simple_Car_Payment_Calculator-signed.apk
+zipalign -f -v 4 android-release-unsigned.apk com.SantoMigueProductions.Simple_Car_Payment_Calculator-signed.apk
 
 Banner Ad
 
