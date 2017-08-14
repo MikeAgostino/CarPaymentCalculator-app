@@ -1,30 +1,31 @@
 <html>
 
 <body ng-app="app">
-
-    <form role="form" data-toggle="validator" name="singleCarForm" ng-controller="singleCtrl">
-        <div>
-            <div class="row">
-            </div>
-            <div class="form-group">
-                <table class="table table-bordered car-form">
-                    <tr>
-                        <td class="col-md-2">Cost of Car</td>
-                        <td><input required
-                            class="form-control" 
-                            type="number" id="carCost" 
-                            ng-model="CarCost.value" 
-                            data-error="Bruh, that email address is invalid">
-                            <div class="help-block with-errors"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-2">Finance Rate</td>
-                        <td><input required class="form-control" pattern="^[0-9]*[.]?[0-9]*$" type="number" id="carCost" ng-model="CarCost.financeRate"></td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-2">Years Financed</td>
-                        <td>  <select class="form-control" id="years">
+    <div ng-controller="singleCtrl">
+        <form role="form" id="taskForm" data-toggle="validator" name="singleCarForm">
+            <div>
+                <div class="row">
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col col 40">Cost of Car</div>
+                        <div class="col col-60">
+                            <div class="form-group">
+                                <input required class="form-control" name="cost" type="number" id="carCost" ng-model="CarInfo.value" <div class="help-block with-errors">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-40">Finance Rate</div>
+                        <div class="col col-60">
+                            <div class="form-group">
+                                <input required class="form-control" type="number" id="carRate" ng-model="CarInfo.financeRate">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-40">Years Financed</div>
+                        <div class="col col-60"> <select class="form-control" id="years" ng-model="CarInfo.years">
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -33,23 +34,45 @@
                             <option>6</option>
                             <option>7</option>
                             <option>8</option>
-                        </select></td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-2">Tax percentage</td>
-                        <td><input required class="form-control" type="number" id="carCost" ng-model="CarCost.value"></td>
-                    </tr>                                                            
-                    <tr>
-                        <td class="col-md-2">Down Payment</td>
-                        <td><input required class="form-control" type="number" id="carCost" ng-model="CarCost.value"></td>
-                    </tr>     
-                </table>
+                        </select></div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-40">Tax percentage</div>
+                        <div class="col col-60">
+                            <div class="form-group">
+                                <input required class="form-control col-sm-10" type="number" id="carDown" ng-model="CarInfo.tax">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-40">Down Payment</div>
+                        <div class="col col-60">
+                            <div class="form-group">
+                                <input required class="form-control col-sm-10" type="number" id="carDown" ng-model="CarInfo.down">
+
+                            </div>
+                        </div>
+                    </div>
+                    </table>
+                </div>
             </div>
-        </div>
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary">Calculate</button>
-    </div>        
-    </form>
+        </form>
+
+<div class="row">
+    <div class="col col-40">Bi-Weekly</div>
+    <div class="col col-60">{{biweekly}}</div>
+</div>
+<div class="row">
+    <div class="col col-40" style="border-bottom: solid 1px;">Monthly</div>
+    <div class="col col-60" style="border-bottom: solid 1px;">{{monthly}}</div>
+</div>
+
+<div class="btn btn-group">
+    <button type="submit" class="btn btn-lg btn-primary" ng-click="calculate()">Calculate</button>
+    <button type="submit" class="btn btn-lg btn-primary" ng-click="reset()">Reset</button>
+</div>
+
 </body>
 
 </html>

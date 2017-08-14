@@ -9,3 +9,26 @@
     -webkit-transform: translateX(0);
     transform: translateX(0);
 }
+
+table.car-form td{
+    vertical-align: middle !important;
+}
+
+// Left Align Icon
+.has-feedback-left .form-control-feedback {
+    left: 0; 
+}
+
+.col {
+    border: solid 1px grey;
+    border-bottom-style: none;
+    border-right-style: none;
+}
+
+.col:last-child {
+    border-right: solid 1px grey;
+}
+
+.row:last-child .col {
+    border-bottom: solid 1px grey;
+}
